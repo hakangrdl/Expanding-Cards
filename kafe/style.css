@@ -1,0 +1,130 @@
+/* Genel stil */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1d120f;
+  overflow-y: scroll;
+}
+
+.baslik img {
+  transform: translateY(10px);
+  border-radius: 10%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.baslik {
+  justify-content: center;
+  display: flex;
+  border: none;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Butonlar için stil */
+/* Butonlar için stil */
+button.giris {
+  padding: 12px 30px;  /* Buton içindeki metnin etrafında daha fazla boşluk */
+  margin: 15px 10px;  /* Butonlar arasına daha fazla boşluk */
+  background-color: #4B2E1A;  /* Arka plan rengi */
+  color: #F4A300;  /* Yazı rengi beyaz */
+  border: none;  /* Sınır yok */
+  cursor: pointer;  /* Fare işaretçisi pointer */
+  font-size: 18px;  /* Yazı boyutunu büyüttük */
+  font-weight: bold;  /* Yazıyı kalınlaştırdık */
+  border-radius: 8px;  /* Kenarları yuvarladık */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* Hafif bir gölge ekledik */
+  transition: all 0.3s ease;  /* Buton geçişi */
+}
+
+/* Hover efekti */
+button.giris:hover {
+  background-color: #4B2E1A;  /* Hoverda arka plan rengini koyulaştırdık */
+  transform: translateY(-4px);  /* Hoverda butonu biraz yukarı kaydırdık */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);  /* Hoverda gölgeyi artırdık */
+}
+
+/* Aktif buton efekti */
+button.giris:active {
+  transform: translateY(2px);  /* Butona tıklandığında biraz aşağıya kaydırdık */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Tıklama anında hafif gölge */
+}
+
+/* Buton odaklanma efekti (focus) */
+button.giris:focus {
+  outline: none;  /* Odaklanma kenarlığını kaldırdık */
+  box-shadow: 0 0 10px #4B2E1A;  /* Odaklanınca yeşil bir kenarlık ekledik */
+}
+
+
+/* Galeri düzeni */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 30px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Image container */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Resim stili */
+.image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Resmin aktif durumu */
+.image.active {
+  transform: scale(1.3) translateY(-25px);
+  opacity: 1;
+}
+
+.image.inactive {
+  opacity: 0.4;
+  transform: scale(1);
+}
+
+/* Resim altındaki metin */
+.image-info {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  background: none; /* Arka planı iptal ettik */
+  color: #8B4513;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: none; /* H3 ve P'nin arka planını iptal ettik */
+  color: #FFFFFF; /* Renk, arka planla uyumlu altın rengi */
+}
+
+p {
+  font-size: 16px;
+  color: #FFFFFF; /* Fiyatın rengini beyaz yaptık */
+}
