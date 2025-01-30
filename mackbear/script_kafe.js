@@ -1,188 +1,294 @@
-const menuToggleButton = document.querySelector('.menu-toggle');
-const menuContainer = document.querySelector('.menu-container');
-const menuBtns = document.querySelectorAll('.menu-btn');
-const productList = document.getElementById('product-list');
-const introPage = document.querySelector('.intro'); // Giriş sayfası
-const cafeMenuTitle = document.querySelector('.cafe-menu-title'); // Kafe menüsünün başlık elemanı
+/* Genel Stil */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-let imageArray = [];
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: #f4f4f4;
+    height: 100%;
+}
 
-// Menü butonlarına tıklama olayını dinle
-menuBtns.forEach(button => {
-    button.addEventListener('click', (event) => {
-        const category = event.target.dataset.category;
+/* Giriş Sayfası */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6B4F47;
+    color: white;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    border: 10px solid #3B2A20; /* Koyu renkli sınır */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Hafif gölge ekledik */
+    padding: 20px; /* İç kenar boşluğu ekledik */
+}
 
-        // Kategorilere göre ürünleri seç
-        if (category === 'specialButton') {
-            imageArray = [
-                {
-                    src: 'https://globalassets.starbucks.com/digitalassets/products/bev/SBX20211210_MochaCookieCrumbleFrapp.jpg?impolicy=1by1_wide_topcrop_630',
-                    name: 'Cookie Mocha',
-                    price: '120/140 ₺',
-                },
-                {
-                    src: 'https://img.freepik.com/premium-photo/caramel-popcorn-latte-cinema-themed-cafe-with-blurred-lights-background_887552-46847.jpg',
-                    name: 'Popcorn Latte',
-                    price: '120/140 ₺',
-                },
-                {
-                    src: 'https://www.einfachbacken.de/sites/einfachbacken.de/files/styles/full_width_tablet_4_3/public/2022-12/pumpkin_spice_latte_1.jpeg?h=93d8d2a6&itok=mIl5Ehs8',
-                    name: 'Pumpkin Spice Latte',
-                    price: '120/140 ₺',
-                },
-                {
-                    src: 'https://shottbeverages.com/wp-content/uploads/2019/10/Salted-Caramel-Coffee-1.jpg',
-                    name: 'Salted Caramel',
-                    price: '120/140 ₺',
-                },
-                { 
-                    src: 'https://www.cariboucoffee.com.tr/upload/prod/cc-berry-white-mocha.png', 
-                    name: 'Berry White', 
-                    price: '120/140 ₺' 
-                },
-                { 
-                    src: 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/58D395A1-590A-4ED3-A810-16439E2EC175/Derivates/45b2c006-2c44-491f-8b68-f88a1d6a223e.jpg', 
-                    name: 'Toffee Nut Latte', 
-                    price: '120/140 ₺' 
-                },
-                { 
-                    src: 'https://images.ctfassets.net/v601h1fyjgba/7HTOK351rMiQkGqcem5wUl/1d26827e666fee77bc09bdeae3a6d708/Caramel_Cookie_Coffee.jpg', 
-                    name: 'Cookie Caramel', 
-                    price: '120/140 ₺' 
-                },
-                { 
-                    src: 'https://www.puratos.us/content/dam/usa/images/recipes/patisserie/hispanic/Almond%20Coffee.jpeg/jcr:content/renditions/cq5dam.web.800.800.webp', 
-                    name: 'Almond Macchiato', 
-                    price: '120/140 ₺' 
-                },
-            ];
-        } else if (category === 'sicaklarButton') {
-            imageArray = [
-                {
-                    src: 'https://www.shutterstock.com/image-photo/espresso-coffee-transparent-cup-600nw-2512810803.jpg',
-                    name: 'Expresso',
-                    price: '65/85 ₺',
-                },
-                {
-                    src: 'https://assets.beanbox.com/blog_images/AB7ud4YSE6nmOX0iGlgA.jpeg',
-                    name: 'Americano',
-                    price: '80/90 ₺',
-                },
-                {
-                    src: 'https://bikafein.com/wp-content/uploads/2022/08/CAH_Header_Caramel_macch_2880x1660-2-scaled.jpg',
-                    name: 'Caramel Macchiato',
-                    price: '65/75 ₺',
-                },
-                {
-                    src: 'https://st.depositphotos.com/2481033/3144/i/450/depositphotos_31444643-stock-photo-cup-of-coffee-and-coffee.jpg',
-                    name: 'Filtre Kahve',
-                    price: '70/80 ₺',
-                },
-                { 
-                    src: 'https://media.istockphoto.com/id/1152767411/tr/foto%C4%9Fraf/bardak-kahve-latte-k%C4%B1rpma-yolu-ile-beyaz-arka-planda-izole.jpg?s=612x612&w=0&k=20&c=xrDDgfFul8T6U0bShSPzSFJVDNekFJJdaJU7JRnVHdw=', 
-                    name: 'Latte', 
-                    price: '90/105 ₺' 
-                },
-                { 
-                    src: 'https://www.cuisinart.com/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-us-cuisinart-sfra-Library/default/dw30047d66/images/recipe-Images/cappuccino1-recipe.jpg?sw=1200&sh=1200&sm=fit', 
-                    name: 'Cappuccino', 
-                    price: '90/105 ₺' 
-                },
-                { 
-                    src: 'https://downshiftology.com/wp-content/uploads/2023/11/Mexican-Hot-Chocolate-main-500x500.jpg', 
-                    name: 'Hot Chocolate', 
-                    price: '100/115 ₺' 
-                },
-                { 
-                    src: 'https://odulbufe.com/wp-content/uploads/2021/08/Sahlep.jpg', 
-                    name: 'Sahlep', 
-                    price: '100/115 ₺' 
-                },
-            ];
-        } else if (category === 'icecekButton') {
-            imageArray = [
-                { 
-                    src: 'https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/06/San-Sebastian-cheescake-hero-09.jpg', 
-                    name: 'San Sebastian Homemade', 
-                    price: '150 ₺' 
-                },
-                { 
-                    src: 'https://www.flavoursholidays.co.uk/wp-content/uploads/2020/07/Tiramisu.jpg', 
-                    name: 'Tiramisu', 
-                    price: '110 ₺' 
-                },
-                { 
-                    src: 'https://dosegida.com/Content/Images/Urunler/Framboazli-Mono-Pasta/frambuazli-mono-pasta-dose-gida.jpg', 
-                    name: 'Mono Frambuaz', 
-                    price: '110 ₺' 
-                },
-                { 
-                    src: 'https://static.ticimax.cloud/9247/uploads/urunresimleri/buyuk/polka--d28f.jpg', 
-                    name: 'Polka', 
-                    price: '140 ₺' 
-                },
-                { 
-                    src: 'https://images.aws.nestle.recipes/resized/5b069c3ed2feea79377014f6766fcd49_Original_NTH_Chocolate_Chip_Cookie_1080_850.jpg', 
-                    name: 'Cookie', 
-                    price: '80 ₺' 
-                },
-                { 
-                    src: 'https://cafefernando.com/images/mozaik-pasta-dilim.jpg', 
-                    name: 'Mozaik', 
-                    price: '110 ₺' 
-                },
-                { 
-                    src: 'https://mealsbymolly.com/wp-content/uploads/coffee-cheesecake.jpg', 
-                    name: 'CheeseCake', 
-                    price: '110 ₺' 
-                },
-                { 
-                    src: 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/7b469d4538bb9e2667c540f6c0310f33/Derivates/2cab109c744bce1e7184ce92905d1ecf8295ed08.jpg', 
-                    name: 'Magnolia', 
-                    price: '120 ₺' 
-                },
-            ];
-        }
+.logo-img {
+    width: 90%; /* Logo genişliğini %90 yaparak büyütüyoruz */
+    max-width: 800px; /* Maksimum genişlik daha büyük yapıldı */
+    height: auto;
+    margin-bottom: 20px;
+}
 
-        displayProducts(imageArray);
-    });
-});
+.welcome-text {
+    font-size: 3.5rem;  /* Yazı boyutunu biraz daha büyütüyoruz */
+    font-weight: bold; /* Kalın yapıyoruz */
+    color: #F2D1B3; /* Açık renk seçiyoruz */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Daha belirgin bir gölge ekliyoruz */
+    letter-spacing: 2px; /* Harfler arasına boşluk ekliyoruz */
+    margin-top: -50px;
+    text-transform: uppercase; /* Yazıyı büyük harf yapıyoruz */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: -30px;
+}
 
-// Menü gösterme işlemi
-menuToggleButton.addEventListener('click', () => {
-    introPage.style.transform = 'translateY(-100%)'; // İlk sayfa kaybolur
-    setTimeout(() => {
-        menuContainer.classList.add('show');
-        menuContainer.classList.remove('hide');
-        // "Özel" kategorisini otomatik seç
-        const specialButton = document.querySelector('[data-category="specialButton"]');
-        specialButton.click();
-        
-        // Sayfa kaybolduktan sonra kafe menüsüne kadar kaydır
-        cafeMenuTitle.scrollIntoView({ behavior: 'smooth' });
-    }, 500); // Menü görünür olmadan önce animasyon bitene kadar bekler
-});
+/* Menü Göster Butonu */
+.menu-toggle {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #F2D1B3;
+    color: #6B4F47;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    top: 50px;
+}
 
-// Ürünleri görüntüleme fonksiyonu
-function displayProducts(products) {
-    productList.innerHTML = ''; // Önceki ürünleri temizle
-    products.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('product');
-        
-        const image = document.createElement('img');
-        image.src = product.src;
-        image.alt = product.name;
-        productElement.appendChild(image);
-        
-        const name = document.createElement('h3');
-        name.textContent = product.name;
-        productElement.appendChild(name);
-        
-        const price = document.createElement('p');
-        price.textContent = product.price;
-        productElement.appendChild(price);
-        
-        productList.appendChild(productElement);
-    });
+.menu-toggle:hover {
+    background-color: #6B4F47;
+    color: white;
+}
+
+/* Menü Konteyneri */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6B4F47, #F2D1B3);
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.menu-container.show {
+    transform: translateY(0);
+}
+
+/* Menü Başlığı */
+.menu-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #F2D1B3;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Menü Butonları */
+.menu-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Butonları satırlara yerleştirir */
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu-btn {
+    padding: 12px 25px;
+    background-color: #F2D1B3;
+    color: #6B4F47;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #6B4F47;
+    color: white;
+}
+
+/* Ürün Listesi - Kaydırma Eklendi */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid ile otomatik olarak sütun sayısını ayarlayın */
+    gap: 20px;
+    padding: 20px;
+    max-height: 75vh; /* Ürün listesi ekranın %75'ini aşamaz */
+    overflow-y: auto; /* Dikey kaydırma */
+    width: 100%;
+    justify-items: center; /* Grid elemanlarını yatayda ortalar */
+    scrollbar-width: thin;
+    scrollbar-color: #6B4F47 #F2D1B3;
+}
+
+/* Scrollbar (WebKit) */
+.product-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.product-list::-webkit-scrollbar-thumb {
+    background: #6B4F47;
+    border-radius: 10px;
+}
+
+.product-list::-webkit-scrollbar-track {
+    background: #F2D1B3;
+}
+
+/* Ürün Kartı */
+.product {
+    background-color: rgb(254, 254, 253);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Ürün Kartı Hover */
+.product:hover {
+    transform: translateY(-5px);
+}
+
+/* Ürün Görseli */
+.product img {
+    width: 100%; /* Görsellerin genişliği tamamen sığacak şekilde ayarlandı */
+    height: 200px; /* Sabit yükseklik */
+    object-fit: cover; /* Taşmayı önler, kırpma yapar */
+    border-radius: 10px;
+}
+
+/* Ürün İsmi */
+.product-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Ürün Fiyatı */
+.product-price {
+    color: #6B4F47;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+/* Sayfa Kaydırma Animasyonu */
+body {
+    overflow: auto; /* Yatay ve dikey kaydırma aktif */
+    height: 100%;
+}
+
+/* Kafe Menüsü Başlığı Güzelleme */
+.menu-title {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #F2D1B3;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Mobil uyumlu düzenlemeler */
+@media (max-width: 768px) {
+    /* Giriş sayfasındaki yazı boyutunu küçült */
+    .welcome-text {
+        font-size: 1.5rem;
+    }
+
+    /* Menü başlığını küçült */
+    .menu-title {
+        font-size: 2rem;
+    }
+
+    /* Butonları daha küçük yap */
+    .menu-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    /* Ürün kartlarını daha küçük hale getir */
+    .product img {
+        height: 180px;
+    }
+
+    /* Ürün adı boyutunu küçült */
+    .product-name {
+        font-size: 1.1rem;
+    }
+
+    /* Ürün fiyatını küçült */
+    .product-price {
+        font-size: 1rem;
+    }
+
+    /* Menü butonlarını sığdırmak için düzenle */
+    .menu-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Ürün listesi için daha geniş bir alan */
+    .product-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Daha dar aralıklar ve sütunlar */
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Giriş sayfasındaki yazı boyutunu daha da küçült */
+    .welcome-text {
+        font-size: 1.2rem;
+    }
+
+    /* Menü başlığını daha da küçült */
+    .menu-title {
+        font-size: 1.8rem;
+    }
+
+    /* Ürün kartlarını daha da küçült */
+    .product img {
+        height: 160px;
+    }
+
+    /* Ürün adı boyutunu küçült */
+    .product-name {
+        font-size: 1rem;
+    }
+
+    /* Ürün fiyatını küçült */
+    .product-price {
+        font-size: 0.9rem;
+    }
+
+    /* Menü butonlarını daha küçük hale getir */
+    .menu-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
