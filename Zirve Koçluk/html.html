@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zirve Koçluğu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎯 Zirve Koçluğu</h1>
+    <p>📌 Hedefine Giden Yolda, Zirveye Birlikte!</p>
+  </header>
+
+  <section id="hizmetler">
+    <h2>🌟 Hizmetlerimiz:</h2>
+    <div class="hizmet-kutulari">
+      <div class="hizmet">
+        <h3>✅ Bireysel Ders Programı</h3>
+        <p>Size özel, sınav başarınızı artıracak bir ders programı hazırlıyoruz.</p>
+      </div>
+      <div class="hizmet">
+        <h3>✅ Deneme Sınavı Analizleri</h3>
+        <p>Güçlü yönlerinizi keşfedin, gelişime açık alanları iyileştirin.</p>
+      </div>
+      <div class="hizmet">
+        <h3>✅ Kaynak Önerileri</h3>
+        <p>Seviyenize ve hedefinize uygun kaynaklar sunuyoruz.</p>
+      </div>
+      <div class="hizmet">
+        <h3>✅ 7/24 Destek</h3>
+        <p>Her an yanınızdayız, sorularınızı hemen yanıtlıyoruz.</p>
+      </div>
+      <div class="hizmet">
+        <h3>✅ Soru-Cevap Toplantıları</h3>
+        <p>Derece öğrencilerinin katılımıyla haftalık toplantılar yapıyoruz.</p>
+      </div>
+    </div>
+    <button id="form-toggle-btn">Başvuru Formu Gönder</button>
+  </section>
+
+  <!-- Başvuru Formu Sayfanın Altında -->
+  <section id="form">
+    <h2>Başvuru Formu</h2>
+    <form action="https://getform.io/f/bdrnlwob" method="POST">
+      <label for="fullname">Ad Soyad:</label>
+      <input type="text" name="Ad Soyad" id="fullname" placeholder="İsim Soyisim" required>
+
+      <label for="class">Sınıf:</label>
+      <input type="text" name="Sınıf" id="class" placeholder="Ör: 12" required>
+
+      <label for="tyt">TYT Neti:</label>
+      <input type="number" name="TYT Neti" id="tyt" placeholder="Ör: 75" min="0" max="120" step="0.25" maxlength="3" required>
+
+      <label for="ayt">AYT Neti:</label>
+      <input type="number" name="AYT Neti" id="ayt" placeholder="Ör: 30" min="0" max="80" step="0.25" maxlength="2" required>
+
+      <label for="phone">Telefon Numarası:</label>
+      <input type="tel" name="Telefon" id="phone" placeholder="0 (5**) *** ** **" maxlength="14" required>
+
+      <!-- Gizli input (Spam botlarını engellemek için) -->
+      <input type="hidden" name="_gotcha" style="display:none !important">
+
+      <input type="hidden" name="_next" value="https://tesekkur-sayfasi-url.com">
+      <input type="hidden" name="_subject" value="Yeni Başvuru Geldi!">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Gönder</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>📞 İletişim: zirvekoclugu@gmail.com | 📱 Instagram: @zirvekoclugu</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
