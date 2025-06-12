@@ -42,7 +42,7 @@ header .container {
 }
 
 .site-logo {
-    height: 40px; /* Logonuzun yüksekliğini ayarlayın */
+    height: 55px; /* Logo yüksekliği biraz daha büyütüldü */
     width: auto; /* Genişliği otomatik ayarla */
     vertical-align: middle; /* Metinle dikeyde hizala */
 }
@@ -495,13 +495,16 @@ footer .social-links a:hover {
         right: 15px;
     }
 
+    /* Logo ve Başlık Hizalaması (Mobil) */
     .logo {
-        flex-direction: column; /* Mobil görünümde logo ve başlığı alt alta getir */
-        gap: 5px;
+        flex-direction: row; /* Mobil görünümde logo ve başlığı yan yana tut */
+        justify-content: center; /* Ortala */
+        width: 100%; /* Tam genişlik */
+        margin-bottom: 10px; /* Navigasyon ile arasında boşluk bırak */
     }
 
     .site-logo {
-        height: 35px; /* Mobil için daha küçük logo */
+        height: 45px; /* Mobil için biraz daha büyük logo (önce 35px'ti) */
     }
 }
 
