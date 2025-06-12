@@ -1,0 +1,521 @@
+/* General Body Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #003366; /* ODTÜ Blue */
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo ve Başlık Hizalaması */
+.logo {
+    display: flex; /* Logo ve h1'i yan yana getirir */
+    align-items: center; /* Dikeyde ortalar */
+    gap: 10px; /* Logo ile başlık arasına boşluk */
+}
+
+.site-logo {
+    height: 40px; /* Logonuzun yüksekliğini ayarlayın */
+    width: auto; /* Genişliği otomatik ayarla */
+    vertical-align: middle; /* Metinle dikeyde hizala */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffd700; /* Gold accent */
+    white-space: nowrap; /* Tek satırda kalmasını sağlar */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold on hover */
+}
+
+.qr-placeholder {
+    background-color: white;
+    color: #003366;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Space from navigation */
+    min-width: 120px; /* Ensure it doesn't get too small */
+}
+
+.qr-placeholder #qrcode-scanner-container {
+    margin-top: 5px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://source.unsplash.com/random/1600x900/?education,books') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    /* Başlığı daha dikkat çekici hale getirmek için güncellemeler */
+    font-size: 56px; /* Daha büyük font boyutu */
+    margin-bottom: 15px;
+    font-weight: 800; /* Daha kalın font */
+    line-height: 1.2;
+    color: #ffd700; /* Altın rengiyle daha dikkat çekici */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Hafif bir gölge efekti */
+    letter-spacing: 1.5px; /* Harfler arasında biraz boşluk */
+}
+
+.hero-content .tagline {
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: #ffd700;
+}
+
+.btn-primary {
+    background-color: #ffd700; /* Gold */
+    color: #003366;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #e6c200;
+    transform: translateY(-3px);
+}
+
+/* Section Common Styles */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #003366;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffd700;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Services Section */
+.services-section {
+    background-color: #ffffff;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: #f0f4f8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-item i {
+    font-size: 45px;
+    color: #003366;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.service-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #003366;
+    text-align: center;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: #eef3f7;
+}
+
+.how-it-works-section .description {
+    font-size: 20px;
+    margin-bottom: 60px;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.working-process {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.process-step {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.process-step i {
+    font-size: 50px;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.process-step h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+.process-step p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Call to Action Section */
+.cta-section {
+    background-color: #003366;
+    color: white;
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    color: white;
+}
+
+.cta-section h2::after {
+    background-color: #ffd700;
+}
+
+.cta-section p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #003366;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1a1a1a;
+    color: #bbb;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer .social-links a {
+    color: #bbb;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: white;
+}
+
+/* --- Modal (Pop-up) Styles --- */
+.modal {
+    display: none; /* Varsayılan olarak gizli kalır */
+    position: fixed; /* Ekranın üzerinde kalır */
+    z-index: 1000; /* Diğer elementlerin üzerinde */
+    left: 0;
+    top: 0;
+    width: 100%; /* Tam genişlik */
+    height: 100%; /* Tam yükseklik */
+    overflow: auto; /* İçerik taşarsa kaydırma çubuğu */
+    background-color: rgba(0, 0, 0, 0.7); /* Yarı şeffaf siyah arka plan */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: center; /* Yatayda ortala */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Dikeyde ve yatayda otomatik ortalama */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px; /* Maksimum genişlik */
+    width: 90%; /* Responsive genişlik */
+    position: relative; /* Kapatma butonu için */
+    text-align: center;
+    color: #003366;
+    animation: fadeIn 0.3s ease-out; /* Açılış animasyonu */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content h2 {
+    font-size: 32px;
+    color: #003366;
+    margin-bottom: 25px;
+    position: relative; /* ::after için */
+    display: inline-block;
+}
+
+.modal-content h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #ffd700;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-info-list p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.contact-info-list p i {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #003366;
+    min-width: 30px; /* İkonların hizalanması için */
+    text-align: center;
+}
+
+.contact-info-list p a {
+    color: #003366;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-info-list p a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+.modal-note {
+    margin-top: 25px;
+    font-size: 15px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .qr-placeholder {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    .hero-content h2 {
+        font-size: 44px; /* Tablet boyutlarında küçültme */
+    }
+
+    .hero-content .tagline {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h2 {
+        font-size: 30px;
+    }
+
+    .service-grid, .working-process {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item, .process-step {
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 28px;
+    }
+
+    .contact-info-list p {
+        font-size: 16px;
+    }
+
+    .close-button {
+        font-size: 30px;
+        right: 15px;
+    }
+
+    .logo {
+        flex-direction: column; /* Mobil görünümde logo ve başlığı alt alta getir */
+        gap: 5px;
+    }
+
+    .site-logo {
+        height: 35px; /* Mobil için daha küçük logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .hero-content h2 {
+        font-size: 36px; /* Mobil boyutlarda daha da küçültme */
+    }
+}
