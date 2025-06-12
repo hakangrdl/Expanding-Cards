@@ -38,18 +38,18 @@ header .container {
 .logo {
     display: flex; /* Logo ve h1'i yan yana getirir */
     align-items: center; /* Dikeyde ortalar */
-    gap: 10px; /* Logo ile başlık arasına boşluk */
+    gap: 15px; /* Logo ile başlık arasına boşluk artırıldı */
 }
 
 .site-logo {
-    height: 55px; /* Logo yüksekliği biraz daha büyütüldü */
+    height: 70px; /* Logo yüksekliği daha da büyütüldü */
     width: auto; /* Genişliği otomatik ayarla */
     vertical-align: middle; /* Metinle dikeyde hizala */
 }
 
 .logo h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 36px; /* Marka ismi font boyutu büyütüldü */
     font-weight: 700;
     color: #ffd700; /* Gold accent */
     white-space: nowrap; /* Tek satırda kalmasını sağlar */
@@ -108,17 +108,17 @@ nav ul li a:hover {
 
 .hero-content h2 {
     /* Başlığı daha dikkat çekici hale getirmek için güncellemeler */
-    font-size: 56px; /* Daha büyük font boyutu */
+    font-size: 64px; /* Başlık font boyutu daha da büyütüldü */
     margin-bottom: 15px;
     font-weight: 800; /* Daha kalın font */
     line-height: 1.2;
     color: #ffd700; /* Altın rengiyle daha dikkat çekici */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Hafif bir gölge efekti */
-    letter-spacing: 1.5px; /* Harfler arasında biraz boşluk */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Gölge efekti artırıldı */
+    letter-spacing: 2px; /* Harfler arasında biraz daha boşluk */
 }
 
 .hero-content .tagline {
-    font-size: 22px;
+    font-size: 24px; /* Tagline biraz büyütüldü */
     margin-bottom: 40px;
     font-weight: 400;
     color: #ffd700;
@@ -433,6 +433,13 @@ footer .social-links a:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 992px) { /* Tablet ve daha küçük ekranlar için yeni breakpoint */
+    .hero-content h2 {
+        font-size: 52px; /* Tablet boyutlarında daha da küçültme */
+    }
+}
+
+
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -501,16 +508,21 @@ footer .social-links a:hover {
         justify-content: center; /* Ortala */
         width: 100%; /* Tam genişlik */
         margin-bottom: 10px; /* Navigasyon ile arasında boşluk bırak */
+        gap: 10px; /* Mobil logo ile başlık arasına boşluk */
     }
 
     .site-logo {
-        height: 45px; /* Mobil için biraz daha büyük logo (önce 35px'ti) */
+        height: 55px; /* Mobil için biraz daha büyük logo (önce 45px'ti, masaüstüyle aynı boyuta getirildi) */
+    }
+
+    .logo h1 {
+        font-size: 32px; /* Mobil marka ismi font boyutu büyütüldü */
     }
 }
 
 @media (max-width: 480px) {
     .logo h1 {
-        font-size: 24px;
+        font-size: 28px; /* Daha küçük mobil ekranlar için marka ismi küçültüldü */
     }
 
     .btn-primary, .btn-secondary {
@@ -519,6 +531,6 @@ footer .social-links a:hover {
     }
 
     .hero-content h2 {
-        font-size: 36px; /* Mobil boyutlarda daha da küçültme */
+        font-size: 38px; /* En küçük mobil boyutlarda başlık küçültüldü */
     }
 }
